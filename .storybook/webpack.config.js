@@ -1,3 +1,5 @@
+const path = require("path")
+
 module.exports = ({ config }) => {
   // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
   config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/]
@@ -19,17 +21,39 @@ module.exports = ({ config }) => {
 
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
-    loader: require.resolve('babel-loader'),
+    loader: require.resolve("babel-loader"),
     options: {
-      presets: [['react-app', {flow: false, typescript: true}]],
+      presets: [["react-app", { flow: false, typescript: true }]],
       plugins: [
-        require.resolve('@babel/plugin-proposal-class-properties'),
+        require.resolve("@babel/plugin-proposal-class-properties"),
         // use babel-plugin-remove-graphql-queries to remove static queries from components when rendering in storybook
-        require.resolve('babel-plugin-remove-graphql-queries'),
+        require.resolve("babel-plugin-remove-graphql-queries"),
       ],
     },
-  });
-  config.resolve.extensions.push('.ts', '.tsx');
+  })
+
+  const cssLoaderIndex = config.module.rules.findIndex(
+    rule => rule.test.source === `\\.css$`
+  )
+  config.module.rules[cssLoaderIndex].exclude = /\.module\.css$/
+
+  config.module.rules.push({
+    test: /\.module\.css$/i,
+    use: [
+      { loader: "style-loader" },
+      {
+        loader: "css-loader",
+        options: {
+          modules: true,
+          importLoaders: 1,
+          localIdentName: "[path]-[local]-[hash:base64:5]",
+        },
+      },
+    ],
+    include: path.resolve(__dirname, "../src"),
+  })
+
+  config.resolve.extensions.push(".ts", ".tsx")
 
   return config
 }

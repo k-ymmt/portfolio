@@ -14,3 +14,5 @@ global.__PATH_PREFIX__ = ""
 window.___navigate = pathname => {
   action("NavigateTo:")(pathname)
 }
+
+import "../src/components/layout.css"

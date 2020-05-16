@@ -32,152 +32,6 @@ export type BooleanQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Boolean']>>>;
 };
 
-export type DataYaml = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  foo?: Maybe<Scalars['String']>;
-};
-
-export type DataYamlConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<DataYamlEdge>;
-  nodes: Array<DataYaml>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<DataYamlGroupConnection>;
-};
-
-
-export type DataYamlConnectionDistinctArgs = {
-  field: DataYamlFieldsEnum;
-};
-
-
-export type DataYamlConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: DataYamlFieldsEnum;
-};
-
-export type DataYamlEdge = {
-  next?: Maybe<DataYaml>;
-  node: DataYaml;
-  previous?: Maybe<DataYaml>;
-};
-
-export type DataYamlFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'foo';
-
-export type DataYamlFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  foo?: Maybe<StringQueryOperatorInput>;
-};
-
-export type DataYamlGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<DataYamlEdge>;
-  nodes: Array<DataYaml>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type DataYamlSortInput = {
-  fields?: Maybe<Array<Maybe<DataYamlFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
 
 export type DateQueryOperatorInput = {
   eq?: Maybe<Scalars['Date']>;
@@ -539,7 +393,7 @@ export type File = Node & {
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  childDataYaml?: Maybe<DataYaml>;
+  childrenSkillsYaml?: Maybe<Array<Maybe<SkillsYaml>>>;
 };
 
 
@@ -837,45 +691,51 @@ export type FileFieldsEnum =
   | 'internal___mediaType'
   | 'internal___owner'
   | 'internal___type'
-  | 'childDataYaml___id'
-  | 'childDataYaml___parent___id'
-  | 'childDataYaml___parent___parent___id'
-  | 'childDataYaml___parent___parent___children'
-  | 'childDataYaml___parent___children'
-  | 'childDataYaml___parent___children___id'
-  | 'childDataYaml___parent___children___children'
-  | 'childDataYaml___parent___internal___content'
-  | 'childDataYaml___parent___internal___contentDigest'
-  | 'childDataYaml___parent___internal___description'
-  | 'childDataYaml___parent___internal___fieldOwners'
-  | 'childDataYaml___parent___internal___ignoreType'
-  | 'childDataYaml___parent___internal___mediaType'
-  | 'childDataYaml___parent___internal___owner'
-  | 'childDataYaml___parent___internal___type'
-  | 'childDataYaml___children'
-  | 'childDataYaml___children___id'
-  | 'childDataYaml___children___parent___id'
-  | 'childDataYaml___children___parent___children'
-  | 'childDataYaml___children___children'
-  | 'childDataYaml___children___children___id'
-  | 'childDataYaml___children___children___children'
-  | 'childDataYaml___children___internal___content'
-  | 'childDataYaml___children___internal___contentDigest'
-  | 'childDataYaml___children___internal___description'
-  | 'childDataYaml___children___internal___fieldOwners'
-  | 'childDataYaml___children___internal___ignoreType'
-  | 'childDataYaml___children___internal___mediaType'
-  | 'childDataYaml___children___internal___owner'
-  | 'childDataYaml___children___internal___type'
-  | 'childDataYaml___internal___content'
-  | 'childDataYaml___internal___contentDigest'
-  | 'childDataYaml___internal___description'
-  | 'childDataYaml___internal___fieldOwners'
-  | 'childDataYaml___internal___ignoreType'
-  | 'childDataYaml___internal___mediaType'
-  | 'childDataYaml___internal___owner'
-  | 'childDataYaml___internal___type'
-  | 'childDataYaml___foo';
+  | 'childrenSkillsYaml'
+  | 'childrenSkillsYaml___id'
+  | 'childrenSkillsYaml___parent___id'
+  | 'childrenSkillsYaml___parent___parent___id'
+  | 'childrenSkillsYaml___parent___parent___children'
+  | 'childrenSkillsYaml___parent___children'
+  | 'childrenSkillsYaml___parent___children___id'
+  | 'childrenSkillsYaml___parent___children___children'
+  | 'childrenSkillsYaml___parent___internal___content'
+  | 'childrenSkillsYaml___parent___internal___contentDigest'
+  | 'childrenSkillsYaml___parent___internal___description'
+  | 'childrenSkillsYaml___parent___internal___fieldOwners'
+  | 'childrenSkillsYaml___parent___internal___ignoreType'
+  | 'childrenSkillsYaml___parent___internal___mediaType'
+  | 'childrenSkillsYaml___parent___internal___owner'
+  | 'childrenSkillsYaml___parent___internal___type'
+  | 'childrenSkillsYaml___children'
+  | 'childrenSkillsYaml___children___id'
+  | 'childrenSkillsYaml___children___parent___id'
+  | 'childrenSkillsYaml___children___parent___children'
+  | 'childrenSkillsYaml___children___children'
+  | 'childrenSkillsYaml___children___children___id'
+  | 'childrenSkillsYaml___children___children___children'
+  | 'childrenSkillsYaml___children___internal___content'
+  | 'childrenSkillsYaml___children___internal___contentDigest'
+  | 'childrenSkillsYaml___children___internal___description'
+  | 'childrenSkillsYaml___children___internal___fieldOwners'
+  | 'childrenSkillsYaml___children___internal___ignoreType'
+  | 'childrenSkillsYaml___children___internal___mediaType'
+  | 'childrenSkillsYaml___children___internal___owner'
+  | 'childrenSkillsYaml___children___internal___type'
+  | 'childrenSkillsYaml___internal___content'
+  | 'childrenSkillsYaml___internal___contentDigest'
+  | 'childrenSkillsYaml___internal___description'
+  | 'childrenSkillsYaml___internal___fieldOwners'
+  | 'childrenSkillsYaml___internal___ignoreType'
+  | 'childrenSkillsYaml___internal___mediaType'
+  | 'childrenSkillsYaml___internal___owner'
+  | 'childrenSkillsYaml___internal___type'
+  | 'childrenSkillsYaml___section___name'
+  | 'childrenSkillsYaml___section___description'
+  | 'childrenSkillsYaml___section___items'
+  | 'childrenSkillsYaml___section___items___name'
+  | 'childrenSkillsYaml___section___items___percentage'
+  | 'childrenSkillsYaml___section___items___description';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -917,7 +777,7 @@ export type FileFilterInput = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  childDataYaml?: Maybe<DataYamlFilterInput>;
+  childrenSkillsYaml?: Maybe<SkillsYamlFilterListInput>;
 };
 
 export type FileGroupConnection = {
@@ -1535,8 +1395,8 @@ export type Query = {
   allSite: SiteConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  dataYaml?: Maybe<DataYaml>;
-  allDataYaml: DataYamlConnection;
+  skillsYaml?: Maybe<SkillsYaml>;
+  allSkillsYaml: SkillsYamlConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -1584,7 +1444,7 @@ export type QueryFileArgs = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  childDataYaml?: Maybe<DataYamlFilterInput>;
+  childrenSkillsYaml?: Maybe<SkillsYamlFilterListInput>;
 };
 
 
@@ -1712,18 +1572,18 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryDataYamlArgs = {
+export type QuerySkillsYamlArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  foo?: Maybe<StringQueryOperatorInput>;
+  section?: Maybe<SkillsYamlSectionFilterInput>;
 };
 
 
-export type QueryAllDataYamlArgs = {
-  filter?: Maybe<DataYamlFilterInput>;
-  sort?: Maybe<DataYamlSortInput>;
+export type QueryAllSkillsYamlArgs = {
+  filter?: Maybe<SkillsYamlFilterInput>;
+  sort?: Maybe<SkillsYamlSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2625,6 +2485,189 @@ export type SiteSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
+export type SkillsYaml = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  section?: Maybe<SkillsYamlSection>;
+};
+
+export type SkillsYamlConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<SkillsYamlEdge>;
+  nodes: Array<SkillsYaml>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<SkillsYamlGroupConnection>;
+};
+
+
+export type SkillsYamlConnectionDistinctArgs = {
+  field: SkillsYamlFieldsEnum;
+};
+
+
+export type SkillsYamlConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: SkillsYamlFieldsEnum;
+};
+
+export type SkillsYamlEdge = {
+  next?: Maybe<SkillsYaml>;
+  node: SkillsYaml;
+  previous?: Maybe<SkillsYaml>;
+};
+
+export type SkillsYamlFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'section___name'
+  | 'section___description'
+  | 'section___items'
+  | 'section___items___name'
+  | 'section___items___percentage'
+  | 'section___items___description';
+
+export type SkillsYamlFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  section?: Maybe<SkillsYamlSectionFilterInput>;
+};
+
+export type SkillsYamlFilterListInput = {
+  elemMatch?: Maybe<SkillsYamlFilterInput>;
+};
+
+export type SkillsYamlGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<SkillsYamlEdge>;
+  nodes: Array<SkillsYaml>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type SkillsYamlSection = {
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  items?: Maybe<Array<Maybe<SkillsYamlSectionItems>>>;
+};
+
+export type SkillsYamlSectionFilterInput = {
+  name?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  items?: Maybe<SkillsYamlSectionItemsFilterListInput>;
+};
+
+export type SkillsYamlSectionItems = {
+  name?: Maybe<Scalars['String']>;
+  percentage?: Maybe<Scalars['Int']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type SkillsYamlSectionItemsFilterInput = {
+  name?: Maybe<StringQueryOperatorInput>;
+  percentage?: Maybe<IntQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SkillsYamlSectionItemsFilterListInput = {
+  elemMatch?: Maybe<SkillsYamlSectionItemsFilterInput>;
+};
+
+export type SkillsYamlSortInput = {
+  fields?: Maybe<Array<Maybe<SkillsYamlFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 export type SortOrderEnum = 
   | 'ASC'
   | 'DESC';
@@ -2652,6 +2695,14 @@ export type Unnamed_2_QueryVariables = {};
 
 
 export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+
+export type SkillsQueryVariables = {};
+
+
+export type SkillsQuery = { allSkillsYaml: { edges: Array<{ node: { section?: Maybe<(
+          Pick<SkillsYamlSection, 'description' | 'name'>
+          & { items?: Maybe<Array<Maybe<Pick<SkillsYamlSectionItems, 'name' | 'percentage' | 'description'>>>> }
+        )> } }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

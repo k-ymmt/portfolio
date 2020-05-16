@@ -1,0 +1,9 @@
+.skillItems {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.skillItem {
+    margin: 10px;
+}

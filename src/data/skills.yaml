@@ -1,0 +1,74 @@
+- section:
+    name: Languages
+    description: Langages
+    items:
+      - name: Swift
+        percentage: 100
+        description: |
+          aaa
+      - name: C#
+        percentage: 100
+        description: |
+          bbb
+      - name: Go
+        percentage: 80
+        description: |
+          bbb
+      - name: Java
+        percentage: 60
+        description: |
+          bbb
+      - name: TypeScript
+        percentage: 40
+        description: |
+          bbb
+      - name: JavaScript
+        percentage: 40
+        description: |
+          bbb
+      - name: Ruby
+        percentage: 40
+        description: |
+          bbb
+      - name: Python
+        percentage: 40
+        description: |
+          bbb
+      - name: Rust
+        percentage: 20
+        description: |
+          bbb
+      - name: Kotlin
+        percentage: 20
+        description: |
+          bbb
+      - name: PHP
+        percentage: 20
+        description: |
+          bbb
+- section:
+    name: Platforms
+    description: Platforms
+    items:
+      - name: iOS
+        percentage: 80
+        description: |
+          bbb
+      - name: macOS
+        percentage: 40
+        description: |
+          bbb
+      - name: Windows
+        percentage: 40
+        description: |
+          bbb
+      - name: Android
+        percentage: 40
+        description: |
+          bbb
+      - name: Linux
+        percentage: 20
+        description: |
+          bbb
+
+
